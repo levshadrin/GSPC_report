@@ -28,16 +28,6 @@ book:
     - 060_evaluation.qmd
 
     - 070_perspectives.qmd
-    
-    # - part: 005-whole_r_intro.qmd
-    #   chapters:
-    #   - 010-intro.qmd
-    #   - 013-vector.qmd
-    #   - 016-complex_structures.qmd
-    #   - 020-install.qmd
-    #   - 030-import_data.qmd
-    #   - 040-if_for.qmd
-    #   - 050-functional.qmd
       
 # bibliography: references.bib
 
@@ -45,12 +35,9 @@ format:
   html:
     theme: cosmo
     number-sections: false
-    # cover-image: images/R_stats_pozdniakov_cover.png
   pdf:
     documentclass: book
     mainfont: "Mont"
-  # epub:
-    # cover-image: images/R_stats_pozdniakov_cover.png
 
 pdf-engine: lualatex
 
