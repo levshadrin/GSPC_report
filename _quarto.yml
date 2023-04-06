@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: docs
+
+lang: ru
+
+book:
+  title: "Greek-Slavonic Parallel Corpus"
+  author: "Лев Шадрин, Анастасия Дрожжина"
+  date: today
+  search: 
+    location: sidebar
+    type: textbox
+  # downloads: [pdf, epub]
+  chapters:
+    - index.qmd
+    
+    - 010_pentekostarion.qmd
+    # - part: 005-whole_r_intro.qmd
+    #   chapters:
+    #   - 010-intro.qmd
+    #   - 013-vector.qmd
+    #   - 016-complex_structures.qmd
+    #   - 020-install.qmd
+    #   - 030-import_data.qmd
+    #   - 040-if_for.qmd
+    #   - 050-functional.qmd
+      
+# bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    number-sections: false
+    # cover-image: images/R_stats_pozdniakov_cover.png
+  pdf:
+    documentclass: book
+    mainfont: "Mont"
+  # epub:
+    # cover-image: images/R_stats_pozdniakov_cover.png
+
+pdf-engine: lualatex
+
+prefer-html: false
+
+editor: visual
+
+callout-appearance: simple
+callout-icon: false
+
+# execute:
+#   execute_notebooks: force
+#   allow_errors: true
+#   cache: true 
