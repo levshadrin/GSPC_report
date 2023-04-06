@@ -27,7 +27,7 @@ book:
 
     - 060_evaluation.qmd
 
-    - 070_perspectives.html
+    - 070_perspectives.qmd
     
     # - part: 005-whole_r_intro.qmd
     #   chapters:

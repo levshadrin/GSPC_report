@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./020_preprocessing.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -107,6 +108,36 @@ ul.task-list li input[type="checkbox"] {
   <a href="./010_pentekostarion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Цветная Триодь</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020_preprocessing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Предварительная обработка текстов</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Готовые пакеты решений (элайнеры)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040_lemmatization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Лемматизация</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050_text_similarity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Text-similarity</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Вопрос об оценке качества сведения текстов</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070_perspectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Направления дальнейшего исследования</strong></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -175,15 +206,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="порядок-следования-фрагментов" class="level3">
 <h3 class="anchored" data-anchor-id="порядок-следования-фрагментов">Порядок следования фрагментов</h3>
 <p>Тексты песнопений на различных языках могут иметь отличный друг от друга порядок следований, что создает перекрестную структуру внутри билингвального корпуса и значительно усложняет задачу параллельного выравнивания.</p>
-<p>—&gt; Разрозненный порядок следования молитв внутри элементов службы или дня затрудняет работу классических элайнеров (см.пункт "Готовые решения"). Необходимо устанавливать широкое окно для оценки близости различных компонентов</p>
+<p>—&gt; Разрозненный порядок следования молитв внутри элементов службы или дня затрудняет работу классических элайнеров (см.пункт “Готовые решения”). Необходимо устанавливать широкое окно для оценки близости различных компонентов</p>
 </section>
 <section id="тексты-молитв" class="level3">
 <h3 class="anchored" data-anchor-id="тексты-молитв">Тексты молитв</h3>
 <p>В текстах Цветной Триоди на обоих языках молитвы могут быть представлены как в сокращенном формате, так и целиком.</p>
 <p>После текста молитвы может следовать как краткое служебное указание о повторении молитвы. В иных случаях, текст молитвы может дублироваться полностью в последующих абзацах, повторяясь необходимое количество раз для исполнения во время службы.</p>
 <p>—&gt; Для решения задачи по выравниванию корпуса требуется нормализация сводимых элементов.</p>
-<p><br>
-</p>
 
 
 </section>
@@ -430,6 +459,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./020_preprocessing.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title"><strong>Предварительная обработка текстов</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
