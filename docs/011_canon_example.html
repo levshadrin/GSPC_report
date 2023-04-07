@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Greek-Slavonic Parallel Corpus - Готовые пакеты решений (элайнеры)</title>
+<title>Greek-Slavonic Parallel Corpus - Пример: Пасхальный канон Иоанна Дамаскина</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./040_lemmatization.html" rel="next">
-<link href="./020_preprocessing.html" rel="prev">
+<link href="./020_preprocessing.html" rel="next">
+<link href="./010_pentekostarion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./030_aligners.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Готовые пакеты решений (элайнеры)</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./011_canon_example.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -110,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./011_canon_example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></a>
+  <a href="./011_canon_example.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -120,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Готовые пакеты решений (элайнеры)</span></a>
+  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Готовые пакеты решений (элайнеры)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -149,24 +149,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Содержание</h2>
-   
-  <ul>
-  <li><a href="#sec-lf_aligner" id="toc-sec-lf_aligner" class="nav-link active" data-scroll-target="#sec-lf_aligner">LF-aligner</a></li>
-  <li><a href="#sec-lingtrain" id="toc-sec-lingtrain" class="nav-link" data-scroll-target="#sec-lingtrain">Lingtrain-aligner</a>
-  <ul class="collapse">
-  <li><a href="#html-книга" id="toc-html-книга" class="nav-link" data-scroll-target="#html-книга">html-книга</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Готовые пакеты решений (элайнеры)</span></h1>
+<h1 class="title"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></h1>
 </div>
 
 
@@ -181,82 +171,133 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>На начальных этапах работы мы предполагали использовать элайнеры – готовые программные решения для задач по выравниванию параллельных текстов. Мы проводили эксперименты в <strong>Lingtrain Aligner</strong>, а также <strong>Hunalign</strong> и его пользовательскую оболочку LF-aligner. Рассмотрим каждый из инструментов в отдельности.</p>
-<section id="sec-lf_aligner" class="level2">
-<h2 class="anchored" data-anchor-id="sec-lf_aligner">LF-aligner</h2>
-<p><em>LF-aligner</em> является графическим интерфейсом для непосредственного элайнера <em><a href="https://github.com/danielvarga/hunalign">Hunalign</a></em>. Этот инструмент требует предварительной лемматизации обрабатываемых текстов. Подробнее о лемматизации можно почитать в <a href="./040_lemmatization.html">соответсвующем разделе</a>.</p>
-<p>Алгоритм <em>Hunalign</em> решает задачу выравнивания лемматизированных текстов по предложениям или параграфам – что соответствует элементам молитв в нашем случае.</p>
-<p>При работе с <em>Hunalign</em> возникает проблема, связанная с отсутствием возможности настройки параметров окна сравнения единиц текста, из-за чего инструмент показывает крайне низкое качество сведения при работе со сложной <a href="./010_pentekostarion.html#sec-element_order">перекрестной структурой Цветной Триоди</a>.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Что еще умеет Hunalign?">
-<div class="callout-header d-flex align-content-center">
+<p>Посмотрим еще раз на фрагмент Пасхального канона Иоанна Дамаскина. Ниже приведены части текстов в том порядке, в каком они представлены в источниках.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Фрагмент церковнославянского текста">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Что еще умеет Hunalign?
+Фрагмент церковнославянского текста
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>В <em>Hunalign</em> можно дополнительно подгрузить внешний словарь переводных эквивалентов – в таком случае, алгоритм будет использовать его, комбинируя словарные данные с информацией о длине предложения по алгоритму Гейла-Черча.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>В отсутствии внешнего словаря алгоритм сперва обращается к длине предложения, а затем автоматически генерирует словарь на основе результатов первичного выравнивания по длине. После этого <em>Hunalign</em> выравнивает текст повторно, используя сгенерированные словарные данные.</p>
+<p>Канон Пасхальный, глас 1:</p>
+<p>Пасхальный канон поется полностью хором: и ирмосы, и припевы, и тропари, и катавасии.</p>
+<p>На каждой песни канона совершается каждение.</p>
+<p>При соборном служении каждение совершают все иереи поочередно (а при большом числе иереев – попарно).</p>
+<p>Песнь 1:</p>
+<p>Ирмос: Воскресе́ния день, просвети́мся, лю́дие. Па́сха, Госпо́дня Па́сха: от сме́рти бо к жи́зни, и от земли́ к небеси́, Христо́с&nbsp;Бог&nbsp;нас преведе́, побе́дную пою́щия.&nbsp;(Четырежды)</p>
+<p>Припев: Христо́с воскре́се из ме́ртвых.</p>
+<p>Очи́стим чу́вствия, и у́зрим непристу́пным све́том Воскресе́ния, Христа́ блиста́ющася, и ра́дуйтеся, реку́ща, я́сно да услы́шим, побе́дную пою́ще. (6 раз)</p>
+<p>Небеса́ у́бо досто́йно да веселя́тся, земля́ же да ра́дуется, да пра́зднует же мир, ви́димый же весь и неви́димый: Христо́с бо воста́, весе́лие ве́чное. (6 раз)</p>
 </div>
 </div>
-</section>
-<section id="sec-lingtrain" class="level2">
-<h2 class="anchored" data-anchor-id="sec-lingtrain">Lingtrain-aligner</h2>
-<p>Среди преимуществ работы с <a href="https://github.com/averkij/lingtrain-aligner">Lingtrain Aligner</a> стоит отметить нетребовательность инструмента к предварительной подготовке текстов, а также относительную простоту запуска алгоритмов выравнивания.</p>
-<p>Пользователю не требуется осуществлять токенизацию и лемматизацию текста. Необходимо лишь определенным образом <a href="https://habr.com/ru/articles/590549/">разметить текст</a> и убедиться, что он соответствует следующим параметрам:</p>
-<ul>
-<li>в случае если проставлены метки для заголовков, их число должно быть одинаковым для обоих текстов;</li>
-<li>в тексте отсутствуют строки, заканчивающиеся точкой и не являющиеся концом абзаца; в противном случае, абзацы будут сегментированы по точкам</li>
-</ul>
-<p>Работать с подготовленными корпусами можно из python при помощи библиотеки lingtrain-aligner.</p>
-<section id="html-книга" class="level3">
-<h3 class="anchored" data-anchor-id="html-книга">html-книга</h3>
-<p>Предварительная разметка текста оказывается полезной не только для выравнивания в элайнерах, но также помогает при создании визуализации результатов – <strong>html-книги</strong> с параллельными текстами.</p>
-<p>Формат выдачи результатов в виде html-книги, предусмотренный в lingtrain, не является оптимальным для целей проекта на данном этапе, поскольку мы заинтересованы в получении словаря переводных эквивалентов на уровне отдельных гимнов или предложений, а также в оценке качества выравнивания.</p>
-<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Посмотреть на результат работы Lingtrain">
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Фрагмент греческого текста">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Посмотреть на результат работы Lingtrain
+Фрагмент греческого текста
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Из 8 пар элементов верно свелась лишь одна: <em>Τὸ Πνεῦμα τὸ ἄγιον…</em> - <em>Дух же Святый…</em></p>
-<p><img src="images/lingtrain_faulty_result.png" class="img-fluid"></p>
+<p>Ὁ Κανών, ποίημα Ἰωάννου τοῦ Δαμασκηνοῦ.</p>
+<p>ᾨδὴ α’ Ἦχος α’ εἱρμὸς</p>
+<p>«Ἀναστάσεως ἡμέρα λαμπρυνθῶμεν Λαοί, Πάσχα Κυρίου, Πάσχα· ἐκ γὰρ θανάτου πρὸς ζωήν, καὶ ἐκ γῆς πρὸς οὐρανόν, Χριστὸς ὁ Θεός, ἡμᾶς διεβίβασεν, ἐπινίκιον ᾄδοντας».</p>
+<p>Καθαρθῶμεν τὰς αἰσθήσεις, καὶ ὀψόμεθα, τῷ ἀπροσίτῳ φωτὶ τῆς ἀναστάσεως, Χριστὸν ἐξαστράπτοντα, καί, Χαίρετε, φάσκοντα, τρανῶς ἀκουσόμεθα, ἐπινίκιον ᾄδοντες.</p>
+<p>Οὐρανοὶ μὲν ἐπαξίως εὐφραινέσθωσαν, γῆ δὲ ἀγαλλιάσθω, ἑορταζέτω δὲ κόσμος, ὁρατός τε ἅπας καὶ ἀόρατος· Χριστὸς γὰρ ἐγήγερται, εὐφροσύνη αἰώνιος.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Неужели элайнеры для нас совсем не годятся?">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Неужели элайнеры для нас совсем не годятся?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>В процессе работы с элайнерами мы поняли, что эти инструменты не подходят для выравнивания текстов Цветной Триоди. Будучи изначально составленными для более очевидных задач, алгоритмы элайнеров не справляются с темпоральной и перекрестной структурой наших текстов.</p>
-<p>Однако, такой функционал как выдача результатов в виде html-книги с параллельным текстом может быть актуален в контексте настоящего проекта для оценки результатов при составлении <a href="./060_evaluation.html">“золотого датасета”</a>.</p>
-</div>
-</div>
-<p>В репозитории доступен <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/aligners/Lingtrain_LABse.ipynb">код Lingtrain</a> для работы с текстами Цветной Триоди.</p>
+<p>Если постараться выделить индивидуальные элементы и свести их вручную, стараясь сохранить последовательность, то получится следующая структура:</p>
+<table class="table">
+<colgroup>
+<col style="width: 59%">
+<col style="width: 41%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Церковнославянский</strong></td>
+<td><strong>Греческий</strong></td>
+</tr>
+<tr class="even">
+<td>Канон Пасхальный,</td>
+<td>Ὁ Κανών,</td>
+</tr>
+<tr class="odd">
+<td>глас 1:</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>ποίημα Ἰωάννου τοῦ Δαμασκηνοῦ.</td>
+</tr>
+<tr class="odd">
+<td>Пасхальный канон поется полностью хором: и ирмосы, и припевы, и тропари, и катавасии. На каждой песни канона совершается каждение. При соборном служении каждение совершают все иереи поочередно (а при большом числе иереев – попарно).</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Песнь 1:</td>
+<td>ᾨδὴ α’</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>Ἦχος α’</td>
+</tr>
+<tr class="even">
+<td>Ирмос:</td>
+<td>εἱρμὸς</td>
+</tr>
+<tr class="odd">
+<td>Воскресе́ния день, просвети́мся, лю́дие. Па́сха, Госпо́дня Па́сха: от сме́рти бо к жи́зни, и от земли́ к небеси́, Христо́с&nbsp;Бог&nbsp;нас преведе́, побе́дную пою́щия.</td>
+<td>«Ἀναστάσεως ἡμέρα λαμπρυνθῶμεν Λαοί, Πάσχα Κυρίου, Πάσχα· ἐκ γὰρ θανάτου πρὸς ζωήν, καὶ ἐκ γῆς πρὸς οὐρανόν, Χριστὸς ὁ Θεός, ἡμᾶς διεβίβασεν, ἐπινίκιον ᾄδοντας».</td>
+</tr>
+<tr class="even">
+<td>Припев: Христо́с воскре́се из ме́ртвых.</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Очи́стим чу́вствия, и у́зрим непристу́пным све́том Воскресе́ния, Христа́ блиста́ющася, и ра́дуйтеся, реку́ща, я́сно да услы́шим, побе́дную пою́ще.</td>
+<td>Καθαρθῶμεν τὰς αἰσθήσεις, καὶ ὀψόμεθα, τῷ ἀπροσίτῳ φωτὶ τῆς ἀναστάσεως, Χριστὸν ἐξαστράπτοντα, καί, Χαίρετε, φάσκοντα, τρανῶς ἀκουσόμεθα, ἐπινίκιον ᾄδοντες.</td>
+</tr>
+<tr class="even">
+<td>(6 раз)</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Небеса́ у́бо досто́йно да веселя́тся, земля́ же да ра́дуется, да пра́зднует же мир, ви́димый же весь и неви́димый: Христо́с бо воста́, весе́лие ве́чное.</td>
+<td>Οὐρανοὶ μὲν ἐπαξίως εὐφραινέσθωσαν, γῆ δὲ ἀγαλλιάσθω, ἑορταζέτω δὲ κόσμος, ὁρατός τε ἅπας καὶ ἀόρατος· Χριστὸς γὰρ ἐγήγερται, εὐφροσύνη αἰώνιος.</td>
+</tr>
+<tr class="even">
+<td>(6 раз)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>На этом примере мы видим комбинацию всех рассмотренных <a href="./010_pentekostarion.html#sec-about_pent_specifics">особенностей текста</a>:</p>
+<ul>
+<li><p><strong>краткие и полные варианты</strong>:</p>
+<ul>
+<li>служебные указания в церковнославянском тексте не имеют эквивалентов в греческом</li>
+</ul></li>
+<li><p><strong>перекрестная структура</strong>:</p>
+<ul>
+<li>элементы <code>Глас 1</code> и <code>Ἦχος α'</code>являются эквивалентами, но находятся в разных местах в текстах</li>
+</ul></li>
+<li><p><strong>цветовая структура</strong>:</p>
+<ul>
+<li>киноварные указания могут быть использованы как “якоря” для улучшения результатов элайнмента</li>
+</ul></li>
+</ul>
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>В основе алгоритма лежит принцип, согласно которому эквивалентные предложения должны примерно соответствовать по длине: более длинные предложения на одном языке - более длинным предложениям на другом языке. Подробнее см. в статье Gale W., Church K. A program for aligning sentences in bilingual corpora (<a href="https:/%20/web.archive.org/web/20061026051708/http://acl.ldc.upenn.edu/J/J93/J93-1004.pdf">ссылка на статью</a>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -494,13 +535,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./020_preprocessing.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Предварительная обработка текстов</span></span>
+      <a href="./010_pentekostarion.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Цветная Триодь</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./040_lemmatization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Лемматизация</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./020_preprocessing.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Предварительная обработка текстов</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

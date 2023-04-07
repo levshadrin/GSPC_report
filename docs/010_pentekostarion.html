@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./020_preprocessing.html" rel="next">
+<link href="./011_canon_example.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -110,32 +110,37 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./020_preprocessing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Предварительная обработка текстов</strong></span></a>
+  <a href="./011_canon_example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Готовые пакеты решений (элайнеры)</strong></span></a>
+  <a href="./020_preprocessing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Предварительная обработка текстов</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./040_lemmatization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Лемматизация</strong></span></a>
+  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Готовые пакеты решений (элайнеры)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050_text_similarity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Text-similarity</strong></span></a>
+  <a href="./040_lemmatization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Лемматизация</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Вопрос об оценке качества сведения текстов</strong></span></a>
+  <a href="./050_text_similarity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text-similarity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./070_perspectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Направления дальнейшего исследования</strong></span></a>
+  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Вопрос об оценке качества сведения текстов</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070_perspectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Направления дальнейшего исследования</span></a>
   </div>
 </li>
     </ul>
@@ -148,12 +153,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#специфика-текста-цветной-триоди" id="toc-специфика-текста-цветной-триоди" class="nav-link active" data-scroll-target="#специфика-текста-цветной-триоди"><strong>Специфика текста Цветной триоди</strong></a>
+  <li><a href="#sec-about_pent_specifics" id="toc-sec-about_pent_specifics" class="nav-link active" data-scroll-target="#sec-about_pent_specifics">Специфика текста Цветной Триоди</a>
   <ul class="collapse">
-  <li><a href="#темпоральная-структура" id="toc-темпоральная-структура" class="nav-link" data-scroll-target="#темпоральная-структура">Темпоральная структура</a></li>
-  <li><a href="#функциональная-структура" id="toc-функциональная-структура" class="nav-link" data-scroll-target="#функциональная-структура">Функциональная структура</a></li>
-  <li><a href="#порядок-следования-фрагментов" id="toc-порядок-следования-фрагментов" class="nav-link" data-scroll-target="#порядок-следования-фрагментов">Порядок следования фрагментов</a></li>
-  <li><a href="#тексты-молитв" id="toc-тексты-молитв" class="nav-link" data-scroll-target="#тексты-молитв">Тексты молитв</a></li>
+  <li><a href="#sec-temporal_structure" id="toc-sec-temporal_structure" class="nav-link" data-scroll-target="#sec-temporal_structure">Темпоральная структура</a></li>
+  <li><a href="#sec-func_structure" id="toc-sec-func_structure" class="nav-link" data-scroll-target="#sec-func_structure">Функциональная структура</a></li>
+  <li><a href="#sec-element_order" id="toc-sec-element_order" class="nav-link" data-scroll-target="#sec-element_order">Порядок следования фрагментов</a></li>
+  <li><a href="#sec-full_or_abridged_hymns" id="toc-sec-full_or_abridged_hymns" class="nav-link" data-scroll-target="#sec-full_or_abridged_hymns">Тексты молитв: краткие и полные варианты</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -182,40 +187,155 @@ ul.task-list li input[type="checkbox"] {
 <p>Высокая значимость Цветной Триоди как компонента годового круга церковных служений способствовала выбору этого текста в качестве материала для нашей работы.</p>
 <p>Греческий текст Цветной Триоди выгружен с <a href="https://glt.goarch.org/#04">сайта Греческой православной архиепископии Америки</a>.</p>
 <p>Церковнославянский текст Цветной Триоди выгружен с <a href="https://azbyka.ru/otechnik/Pravoslavnoe_Bogosluzhenie/triod-tsvetnaja/">сайта проекта «Азбука веры»</a>.</p>
-<section id="специфика-текста-цветной-триоди" class="level2">
-<h2 class="anchored" data-anchor-id="специфика-текста-цветной-триоди"><strong>Специфика текста Цветной триоди</strong></h2>
-<section id="темпоральная-структура" class="level3">
-<h3 class="anchored" data-anchor-id="темпоральная-структура">Темпоральная структура</h3>
+<section id="sec-about_pent_specifics" class="level2">
+<h2 class="anchored" data-anchor-id="sec-about_pent_specifics">Специфика текста Цветной Триоди</h2>
+<p>Ниже перечислены особенности текста Цветной Триоди, которые мы выявили и сформулировали в процессе работы над выравниванием корпуса.</p>
+<p>Для каждой особенности предлагается потенциальное направление поиска решений в контексте дальнейшей работы над проектом.</p>
+<section id="sec-temporal_structure" class="level3">
+<h3 class="anchored" data-anchor-id="sec-temporal_structure">Темпоральная структура</h3>
 <p>Цветная триодь имеет строгую внутреннюю временную структуру, которая включает в себя следующие уровни:</p>
 <ul>
-<li><p>Неделя</p></li>
-<li><p>День недели</p></li>
-<li><p>Служба</p></li>
+<li><p>Неделя</p>
+<ul>
+<li><p>День недели</p>
+<ul>
+<li>Служба</li>
+</ul></li>
+</ul></li>
 </ul>
-<p>—&gt; На уровне темпоральной организации от элайнера ожидается строгое выравнивание элементов в билингвальном корпусе: неделя к неделе, день ко дню ИЛИ требуется разметка текста, которая бы позволила работать на более мелких уровнях, а не выравнивать текст целиком</p>
+<blockquote class="blockquote">
+<p>Говоря об этой книге, как и о любой другой, мы должны прежде всего знать границы ее действия. Триодь Цветная употребляется с утрени первого дня Пасхи до Божественной литургии в Неделю Всех святых, когда в последний раз поются песнопения Триоди Цветной, а в заключение написано: «Конец и Богу слава». Такой огромный период, конечно, распадается на составные части. Безусловно, выделяется первый день Пасхи и Пасхальная седмица; затем имеет общие законы богослужения время от Фоминой недели до отдания Пасхи; Вознесение с попразднством, Троица (Пятидесятница) с попразднством и последний день пения Триоди Цветной – Неделя Всех святых.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Что это значит в контексте задачи?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Что это значит в контексте задачи?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>На уровне темпоральной организации от элайнера ожидается строгое выравнивание элементов в билингвальном корпусе: неделя к неделе, день ко дню, служба к службе. Если подобное выравнивание не достигается автоматически<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, требуется предварительная разметка текста, которая позволила бы провести частичное выравнивание на более низких уровнях, с поэтапным масштабированием</p>
+</div>
+</div>
 </section>
-<section id="функциональная-структура" class="level3">
-<h3 class="anchored" data-anchor-id="функциональная-структура">Функциональная структура</h3>
+<section id="sec-func_structure" class="level3">
+<h3 class="anchored" data-anchor-id="sec-func_structure">Функциональная структура</h3>
 <p>Внутри текста Цветной Триоди можно выделить 2 уровня:</p>
 <ul>
 <li><p>служебные комментариями по организации и проведению службы</p></li>
 <li><p>тексты молитв и песнопений</p></li>
 </ul>
-<p>—&gt; Бинарная функциональная структура является одной из причин расхождения длины богослужебных текстов для разных языков. Так, в греческом тексте Цветной Триоди служебные комментарии представлены в значительно сокращенном виде по сравнению со схожими элементами церковнославянского текста.&nbsp;</p>
+<p>В рукописной традиции элементы различных уровней текста выделяются особым образом – от размера буквиц и инициалов до использования маюскульных шрифтов или вязи в заглавиях. Любопытно, что данная традиция находит и современное цифровое воплощение: на сайтах, которые использовались в качестве источников текстов для настоящего проекта, элементы разных уровней маркированы при помощи цвета.</p>
+<p>Так, тексты молитв отображаются привычным черным цветом, а служебные указания выделены “киноварью” - красным.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Как это выглядит на сайте &quot;Азбуки&quot;?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Как это выглядит на сайте “Азбуки”?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="images/pascha_canon_csl.png" class="img-fluid" style="width:75.0%" alt="Скриншот с сайта azbyka.ru"></p>
+<p>Киноварью выделены заголовки и указание <em>“Четырежды”</em></p>
+</div>
+</div>
+</div>
+<p>Подробнее о работе с цветовой разметкой см. в разделе о <a href="./020_preprocessing.html#sec-html_color">предобработке текстов</a>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Почему так важен цвет &quot;цифрового&quot; текста?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Почему так важен цвет “цифрового” текста?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Бинарная функциональная структура является одной из причин расхождения длины богослужебных текстов для разных языков. Так, в греческом тексте Цветной Триоди служебные комментарии представлены в значительно сокращенном виде по сравнению со схожими элементами церковнославянского текста</p>
+</div>
+</div>
 </section>
-<section id="порядок-следования-фрагментов" class="level3">
-<h3 class="anchored" data-anchor-id="порядок-следования-фрагментов">Порядок следования фрагментов</h3>
+<section id="sec-element_order" class="level3">
+<h3 class="anchored" data-anchor-id="sec-element_order">Порядок следования фрагментов</h3>
 <p>Тексты песнопений на различных языках могут иметь отличный друг от друга порядок следований, что создает перекрестную структуру внутри билингвального корпуса и значительно усложняет задачу параллельного выравнивания.</p>
-<p>—&gt; Разрозненный порядок следования молитв внутри элементов службы или дня затрудняет работу классических элайнеров (см.пункт “Готовые решения”). Необходимо устанавливать широкое окно для оценки близости различных компонентов</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Почему это важно для нас?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Почему это важно для нас?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Разрозненный порядок следования молитв внутри элементов службы или дня затрудняет работу классических элайнеров (см. раздел <a href="./030_aligners.html#sec-about_aligners">Готовые решения</a>). Необходимо устанавливать широкое окно для оценки близости различных компонентов</p>
+</div>
+</div>
 </section>
-<section id="тексты-молитв" class="level3">
-<h3 class="anchored" data-anchor-id="тексты-молитв">Тексты молитв</h3>
+<section id="sec-full_or_abridged_hymns" class="level3">
+<h3 class="anchored" data-anchor-id="sec-full_or_abridged_hymns">Тексты молитв: краткие и полные варианты</h3>
 <p>В текстах Цветной Триоди на обоих языках молитвы могут быть представлены как в сокращенном формате, так и целиком.</p>
-<p>После текста молитвы может следовать как краткое служебное указание о повторении молитвы. В иных случаях, текст молитвы может дублироваться полностью в последующих абзацах, повторяясь необходимое количество раз для исполнения во время службы.</p>
-<p>—&gt; Для решения задачи по выравниванию корпуса требуется нормализация сводимых элементов.</p>
+<p>После текста молитвы может следовать краткое служебное указание о повторении молитвы. В иных случаях, текст молитвы может дублироваться полностью в последующих абзацах, повторяясь необходимое количество раз для исполнения во время службы.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Пример: Пасхальный канон">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пример: Пасхальный канон
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Так, приведенному выше фрагменту Пасхального канона в церковнославянском тексте предшествует подробное указание:</p>
+<blockquote class="blockquote">
+<p>И начина́ет предстоя́тель кано́н, творе́ние Господи́на иоа́нна дамаскина́. Гла́с 1. Ирмо́с:&nbsp;Воскресе́ния де́нь: Ирмосы́ на 4:&nbsp;И тропари́ на 12, с припе́вы:&nbsp;Христо́с воскре́се из ме́ртвых.&nbsp;И па́ки последи́ ки́йждо ли́к ирмо́с. Последи́ же на схо́де катава́сиа, ирмо́с то́йже:&nbsp;Воскресе́ния де́нь:&nbsp;И по не́м: Христо́с воскре́се: ве́сь три́жды.Твори́т же нача́ло кано́на на ку́юждо пе́снь всегда́ предстоя́тель, десно́й или́ ле́вой стране́ случи́вшейся нача́ти. И кади́т в нача́ле кано́на святы́я ико́ны, и о́ба ли́ки и бра́тию по чи́ну. И по ко́ейждо пе́сни быва́ет ектениа́ ма́лая вне́ олтаря́, я́коже ре́хом, во святы́й се́й де́нь. Возгла́с вну́трь олтаря́ от иере́а. По 1-й пе́сни пое́т десна́я страна́. По 3-й же пое́т ле́вая. Си́це пое́м и по про́чих пе́снех.</p>
+<p>Канон Пасхальный, глас 1:</p>
+<p>Пасхальный канон поется полностью хором: и ирмосы, и припевы, и тропари, и катавасии.</p>
+<p>На каждой песни канона совершается каждение.</p>
+<p>При соборном служении каждение совершают все иереи поочередно (а при большом числе иереев – попарно).</p>
+<p>Песнь 1:</p>
+<p>Ирмос: Воскресе́ния день, просвети́мся, лю́дие. &lt;…&gt;</p>
+</blockquote>
+<p>Этот же фрагмент службы в греческом языке не содержит эквивалентных указаний:</p>
+<blockquote class="blockquote">
+<p>Ὁ Κανών, ποίημα Ἰωάννου τοῦ Δαμασκηνοῦ.</p>
+<p>ᾨδὴ α’ Ἦχος α’ εἱρμὸς</p>
+<p>«Ἀναστάσεως ἡμέρα λαμπρυνθῶμεν Λαοί &lt;…&gt;</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Что можно с этим сделать?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Что можно с этим сделать?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для решения задачи по выравниванию корпуса требуется нормализация подобных сводимых элементов.</p>
+</div>
+</div>
 
 
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>М.С. Красовицкая, “Литургика”. Лекция 19. Богослужение в период пения триоди цветной. Доступно по <a href="https://azbyka.ru/otechnik/Pravoslavnoe_Bogosluzhenie/liturgika-krasovitskaja/19">ссылке</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Подробнее о результатах работы элайнеров см. раздел о <a href="./030_aligners.html#sec-about_aligners">готовых решениях</a>, а также раздел <a href="./060_evaluation.html">об оценке качества</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -459,8 +579,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./020_preprocessing.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title"><strong>Предварительная обработка текстов</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./011_canon_example.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

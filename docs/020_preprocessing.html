@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./030_aligners.html" rel="next">
-<link href="./010_pentekostarion.html" rel="prev">
+<link href="./011_canon_example.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020_preprocessing.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">**Предварительная обработка текстов**</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020_preprocessing.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Предварительная обработка текстов</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -110,32 +110,37 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./020_preprocessing.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title"><strong>Предварительная обработка текстов</strong></span></a>
+  <a href="./011_canon_example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Готовые пакеты решений (элайнеры)</strong></span></a>
+  <a href="./020_preprocessing.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Предварительная обработка текстов</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./040_lemmatization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Лемматизация</strong></span></a>
+  <a href="./030_aligners.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Готовые пакеты решений (элайнеры)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050_text_similarity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Text-similarity</strong></span></a>
+  <a href="./040_lemmatization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Лемматизация</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Вопрос об оценке качества сведения текстов</strong></span></a>
+  <a href="./050_text_similarity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text-similarity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./070_perspectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>Направления дальнейшего исследования</strong></span></a>
+  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Вопрос об оценке качества сведения текстов</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070_perspectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Направления дальнейшего исследования</span></a>
   </div>
 </li>
     </ul>
@@ -148,9 +153,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#работа-с-html" id="toc-работа-с-html" class="nav-link active" data-scroll-target="#работа-с-html">Работа с html</a></li>
-  <li><a href="#темпоральная-разметка" id="toc-темпоральная-разметка" class="nav-link" data-scroll-target="#темпоральная-разметка">Темпоральная разметка</a></li>
-  <li><a href="#различный-порядок-следования-молитв-и-песнопений" id="toc-различный-порядок-следования-молитв-и-песнопений" class="nav-link" data-scroll-target="#различный-порядок-следования-молитв-и-песнопений">Различный порядок следования молитв и песнопений</a></li>
+  <li><a href="#sec-html_color" id="toc-sec-html_color" class="nav-link active" data-scroll-target="#sec-html_color">Выгрузка html и цветовая разметка</a></li>
+  <li><a href="#sec_temporal_markup" id="toc-sec_temporal_markup" class="nav-link" data-scroll-target="#sec_temporal_markup">Темпоральная разметка</a></li>
+  <li><a href="#sec_hymn_sequence" id="toc-sec_hymn_sequence" class="nav-link" data-scroll-target="#sec_hymn_sequence">Различный порядок следования молитв и песнопений</a></li>
   <li><a href="#различное-оформление-текстов-молитв" id="toc-различное-оформление-текстов-молитв" class="nav-link" data-scroll-target="#различное-оформление-текстов-молитв">Различное оформление текстов молитв</a></li>
   </ul>
 </nav>
@@ -160,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title"><strong>Предварительная обработка текстов</strong></span></h1>
+<h1 class="title"><span class="chapter-title">Предварительная обработка текстов</span></h1>
 </div>
 
 
@@ -175,28 +180,125 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="работа-с-html" class="level2">
-<h2 class="anchored" data-anchor-id="работа-с-html">Работа с html</h2>
-<p>На веб-страницах, с которых были выгружены тексты для работы, фрагменты молитв и служебных указаний размечены при помощи параметров цвета внутри html-тегов.</p>
+<p>За весь период работы над проектом мы провели большое количество разнообразных экспериментов по обработке изначальных текстовых данных, варьируя объем текстов, сочетание структурных единиц, а также методы и инструменты обработки.</p>
+<p>На данный момент мы выявили следующие этапы предобработки текстов, которые позволяют извлечь и структурировать необходимую для выравнивания информацию.</p>
+<section id="sec-html_color" class="level2">
+<h2 class="anchored" data-anchor-id="sec-html_color">Выгрузка html и цветовая разметка</h2>
+<p>На <a href="./010_pentekostarion.html#sec-about_pent">веб-страницах</a>, с которых были выгружены тексты для работы, фрагменты молитв и служебных указаний размечены при помощи параметров цвета внутри html-тегов.</p>
 <p>Тексты молитв выделены черным цветом, указаний - красным. Предположив, что сохранение данной структуры (см. особенность 2 раздела “Специфика текста Цветной триоди (в частности) и богослужебных текстов”) поможет улучшить результаты выравнивания корпуса, мы решили выгрузить тексты с сохранением цветовой разметки.</p>
 <ul>
-<li>Церковнославянский текст имел правильную html-структуру, сведения о цветовой маркировки были получены через <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/texts/csl_tsvetnaya_triod/scrape.ipynb">регулярные выражения</a></li>
-<li>При работе с html структурой греческого текста мы столкнулись с ошибками в организации страницы: многие текстовые фрагменты не попадали в теги цветовой разметки. Для корректной выгрузки греческого текста был написан код [ССЫЛКА]</li>
+<li><p><strong>Церковнославянский текст</strong> имел регулярную html-структуру, и сведения о цветовой маркировке удалось получить с помощью базовых инструментов для веб-скрейпинга и <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/scraping/md_to_csv_csl.ipynb">регулярных выражений</a></p></li>
+<li><p>При работе с html-структурой <strong>греческого текста</strong> мы столкнулись с ошибками в организации страницы: многие текстовые фрагменты не попадали в теги цветовой разметки. Для корректной выгрузки греческого текста был написан <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/scraping/scrape_grc.ipynb">код</a></p></li>
 </ul>
-<p>Цветовая маркировка отображается в <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/csv/markup">csv</a> - текст поделен между колонками <em>black_text</em> (тексты служб) и <em>red_text</em> (комментарии к текстам), сведения о структуре отражаются в столбце <em>color (значения ‘red’ и ‘black’ соответственно).</em></p>
+<p>Цветовая маркировка отображается в <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/csv/markup">csv</a> – текст поделен между колонками <code>black_text</code> (тексты служб) и <code>red_text</code> (комментарии к текстам), сведения о структуре отражены в столбце <code>color</code> (значения <code>red</code> и <code>black</code> соответственно).</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Как это выглядит?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Как это выглядит?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>В таблице ниже приведен пример, иллюстрирующий структуру данных с информацией о цветовой маркировке текста</p>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 66%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>red_text</th>
+<th>black_text</th>
+<th>color</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Воскре́сение Твое́ Христе́ Спа́се, А́нгели пою́т на небесе́х, и на́с на земли́ сподо́би чи́стым се́рдцем Тебе́ сла́вити.</td>
+<td>black</td>
+</tr>
+<tr class="even">
+<td>И велегла́сно возгласи́т:</td>
+<td></td>
+<td>red</td>
+</tr>
+<tr class="odd">
+<td>И на́м отвеща́ющым:</td>
+<td></td>
+<td>red</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="темпоральная-разметка" class="level2">
-<h2 class="anchored" data-anchor-id="темпоральная-разметка">Темпоральная разметка</h2>
-<p>Темпоральная разметка осуществлена вручную, отдельно для греческого и церковнославянского текстов, с двухуровневой структурой:</p>
-<ul>
-<li>Недели (1-8)</li>
-<li>Дни недели (1_1-1_2-1_3 .. 8_6-8_7.8_8)</li>
-</ul>
-<p>Темпоральная разметка содержится в <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/csv/markup">csv</a> в столбце temp</p>
+<section id="sec_temporal_markup" class="level2">
+<h2 class="anchored" data-anchor-id="sec_temporal_markup">Темпоральная разметка</h2>
+<p>Темпоральная разметка выполнена вручную, отдельно для греческого и церковнославянского текстов. Размечены два уровня временной структуры: недели (<code>1</code> - <code>8</code>) и дни (<code>1_1</code> - <code>8_8</code>).</p>
+<p>Темпоральная разметка содержится в <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/csv/markup">csv</a> в столбце <code>temp</code></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Как это выглядит?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Как это выглядит?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ниже показан пример структуры данных с информацией о темпоральной разметке</p>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 87%">
+<col style="width: 1%">
+<col style="width: 1%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>red_text</th>
+<th>black_text</th>
+<th>color</th>
+<th>temp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ΤΗΣ ΔΙΑΚΑΙΝΗΣΙΜΟΥ</td>
+<td></td>
+<td>red</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Τῌ ΑΓΙᾼ ΚΑΙ ΜΕΓΑΛῌ ΚΥΡΙΑΚῌ ΤΟΥ ΠΑΣΧΑ</td>
+<td></td>
+<td>red</td>
+<td>1_1</td>
+</tr>
+<tr class="odd">
+<td>ΕΩΘΙΝΟΝ Ζ’ Ἦχος βαρὺς</td>
+<td></td>
+<td>red</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Ἰδοὺ σκοτία καὶ πρωΐ, καὶ τί πρὸς τὸ μνημεῖον Μαρία ἕστηκας, πολὺ σκότος ἔχουσα ταῑς φρεσίν; ὑφ’ οὗ ποῦ τέθειται ζητεῖς ὁ Ἰησοῦς. Ἀλλ’ ὅρα τοὺς συντρέχοντας Μαθητάς, πῶς τοῖς ὀθονίοις καὶ τῷ σουδαρίῳ, τὴν Ἀνάστασιν ἐτεκμήραντο, καὶ ἀνεμνήσθησαν τῆς περὶ τούτου Γραφῆς. Μεθ’ ὧν, καὶ δι’ ὧν καὶ ἡμεῖς, πιστεύσαντες, ἀνυμνοῦμέν σε τὸν ζωοδότην Χριστόν.</td>
+<td>black</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="различный-порядок-следования-молитв-и-песнопений" class="level2">
-<h2 class="anchored" data-anchor-id="различный-порядок-следования-молитв-и-песнопений">Различный порядок следования молитв и песнопений</h2>
-<p>Оптимальными решениями для работы с этой особенностью служебных текстов, на наш взгляд являются инструменты, которые позволяют сопоставлять единицы, находящиеся на большом расстоянии друг от друга в тексте (см. text-similarity)</p>
+<section id="sec_hymn_sequence" class="level2">
+<h2 class="anchored" data-anchor-id="sec_hymn_sequence">Различный порядок следования молитв и песнопений</h2>
+<p>Оптимальными решениями для работы с этой особенностью служебных текстов, на наш взгляд являются инструменты, которые позволяют сопоставлять единицы, находящиеся на большом расстоянии друг от друга в тексте (см. раздел <a href="./050_text_similarity.html">text-similarity</a>)</p>
 </section>
 <section id="различное-оформление-текстов-молитв" class="level2">
 <h2 class="anchored" data-anchor-id="различное-оформление-текстов-молитв">Различное оформление текстов молитв</h2>
@@ -441,13 +543,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./010_pentekostarion.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Цветная Триодь</span></span>
+      <a href="./011_canon_example.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Пример: Пасхальный канон Иоанна Дамаскина</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./030_aligners.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title"><strong>Готовые пакеты решений (элайнеры)</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Готовые пакеты решений (элайнеры)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

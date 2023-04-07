@@ -17,6 +17,8 @@ book:
     
     - 010_pentekostarion.qmd
 
+    - 011_canon_example.qmd
+
     - 020_preprocessing.qmd
 
     - 030_aligners.qmd
