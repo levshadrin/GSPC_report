@@ -16,7 +16,8 @@
 
 Более качественные результаты можно получить, оптимизируя *BERT* под конкретные задачи. К примеру, модель [**SBERT**](https://arxiv.org/pdf/1908.10084.pdf) обучена непосредственно для работы с задачами по определению схожести предложений на основе косинусной меры.
 
-Как отмечают разработчики [модели](https://habr.com/ru/companies/sberdevices/articles/527576/), её “архитектура представляет собой [сиамскую нейронную сеть](https://en.wikipedia.org/wiki/Siamese_neural_network) с тремя входами для триплета  «anchor — positive — negative».  К каждому из входов применяется модуль *BERT*, который и будет выполнять роль NLU в этом эксперименте. Модуль содержит в себе [wordpiece-токенизатор](https://paperswithcode.com/method/wordpiece) для преобразования входных строк в BERT-совместимый формат (`input_ids`, `input_mask`, `token_type_ids`), а также саму обучаемую модель *BERT* для векторизации текста.”
+Как отмечают разработчики [модели](https://habr.com/ru/companies/sberdevices/articles/527576/)
+> её “архитектура представляет собой [сиамскую нейронную сеть](https://en.wikipedia.org/wiki/Siamese_neural_network) с тремя входами для триплета  «anchor — positive — negative».  К каждому из входов применяется модуль *BERT*, который и будет выполнять роль NLU в этом эксперименте. Модуль содержит в себе [wordpiece-токенизатор](https://paperswithcode.com/method/wordpiece) для преобразования входных строк в BERT-совместимый формат (`input_ids`, `input_mask`, `token_type_ids`), а также саму обучаемую модель *BERT* для векторизации текста.”
 
 В результате дообучения модели *SBERT* для задачи поиска переводных эквивалентов было получено множество вариантов [мультиязычных моделей](https://huggingface.co/models?pipeline_tag=sentence-similarity&sort=downloads&search=multi).
 
