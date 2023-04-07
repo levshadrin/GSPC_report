@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Вопрос об оценке качества сведения текстов</span></a>
+  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Оценка качества выравнивания текстов</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -153,12 +153,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#для-чего" id="toc-для-чего" class="nav-link active" data-scroll-target="#для-чего">Для чего?</a></li>
-  <li><a href="#лемматизация-текстов-цветной-триоди" id="toc-лемматизация-текстов-цветной-триоди" class="nav-link" data-scroll-target="#лемматизация-текстов-цветной-триоди">Лемматизация текстов Цветной триоди</a>
+  <li><a href="#sec-lemmatizing_pent" id="toc-sec-lemmatizing_pent" class="nav-link active" data-scroll-target="#sec-lemmatizing_pent">Лемматизация текстов Цветной триоди</a>
   <ul class="collapse">
-  <li><a href="#церковнославянский-текст" id="toc-церковнославянский-текст" class="nav-link" data-scroll-target="#церковнославянский-текст">Церковнославянский текст</a></li>
+  <li><a href="#sec-lemm_csl" id="toc-sec-lemm_csl" class="nav-link" data-scroll-target="#sec-lemm_csl">Церковнославянский текст</a></li>
+  <li><a href="#sec-lemm_csl_result" id="toc-sec-lemm_csl_result" class="nav-link" data-scroll-target="#sec-lemm_csl_result">Результаты</a></li>
   </ul></li>
-  <li><a href="#греческий-текст" id="toc-греческий-текст" class="nav-link" data-scroll-target="#греческий-текст">Греческий текст</a></li>
+  <li><a href="#sec-lemm_grc" id="toc-sec-lemm_grc" class="nav-link" data-scroll-target="#sec-lemm_grc">Греческий текст</a>
+  <ul class="collapse">
+  <li><a href="#sec-about_grc_lang" id="toc-sec-about_grc_lang" class="nav-link" data-scroll-target="#sec-about_grc_lang">Языковые особенности</a></li>
+  <li><a href="#sec_lemm_grc_result" id="toc-sec_lemm_grc_result" class="nav-link" data-scroll-target="#sec_lemm_grc_result">Результаты</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -182,28 +186,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="для-чего" class="level2">
-<h2 class="anchored" data-anchor-id="для-чего">Для чего?</h2>
-<ol type="1">
-<li><em>Лемматизация как инструмент работы с элайнерами</em></li>
-</ol>
-<p>При решении задачи параллельного выравнивания текстов лемматизация может оказаться необходимой для дальнейшей обработки текста с помощью элайнеров или пайплайна, использующего словарь переводных эквивалентов (в нашем случае, при работе с LF-aligner).</p>
-<p>В других ситуациях – например, при использовании векторных моделей наподобие Lingtrain Aligner – необходимость в лемматизации текстов пропадает.</p>
-<ol type="1">
-<li><em>Улучшение качества лемматизации служебных текстов может являться отдельной исследовательской задачей, актуальной для двух направлений развития проекта:</em></li>
-</ol>
+<p>Лемматизация является одной из базовых NLP-задач – приведение всех слов в тексте к начальным формам.</p>
+<p>При решении задачи параллельного выравнивания текстов лемматизация может понадобится для дальнейшей обработки текста с помощью элайнеров или пайплайна, использующего словарь переводных эквивалентов. Мы столкнулись с этой необходимостью при экспериментах с <em>LF-aligner</em>.</p>
+<p>В других ситуациях – например, при использовании векторных моделей наподобие <em>Lingtrain</em> – необходимость в лемматизации текстов пропадает.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Лемматизация на этапе постпроцессинга">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Лемматизация на этапе постпроцессинга
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При дальнейшей работе над проектом улучшение качества лемматизации текстов следует выделить в отдельную исследовательскую задачу, актуальную для двух направлений развития проекта:</p>
 <ul>
 <li>создание словаря переводных эквивалентов</li>
-<li>оценка и улучшение качества выравнивания текстов по предложениям (см.пункт ‘Вопрос оценки качества выравнивания’)</li>
+<li>оценка и улучшение качества выравнивания текстов по предложениям. Подробнее – в разделе про <a href="./060_evaluation.html">качество выравнивания</a></li>
 </ul>
-</section>
-<section id="лемматизация-текстов-цветной-триоди" class="level2">
-<h2 class="anchored" data-anchor-id="лемматизация-текстов-цветной-триоди">Лемматизация текстов Цветной триоди</h2>
-<section id="церковнославянский-текст" class="level3">
-<h3 class="anchored" data-anchor-id="церковнославянский-текст">Церковнославянский текст</h3>
-<p>В условиях отсутствия готового модуля, позволяющего провести лемматизацию церковнославянского текста, а также учитывая описанную специфику Цветной Триоди, было решено попробовать лемматизировать Триодь, экспериментируя с моделями современного русского языка (Spacy, PyMorphy2, UDPipe), так и используя модели древних языков (UDPipe).</p>
-<p>Результаты лемматизации Spacy и PyMorphy2 показали крайне низкое качество, и эти инструменты были исключены из списка рассматриваемых.</p>
-<p>Для русского языка – современного и древнего – в UDPipe представлено 6 моделей. В таблице ниже изложены описания данных моделей:</p>
+</div>
+</div>
+<section id="sec-lemmatizing_pent" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lemmatizing_pent">Лемматизация текстов Цветной триоди</h2>
+<section id="sec-lemm_csl" class="level3">
+<h3 class="anchored" data-anchor-id="sec-lemm_csl">Церковнославянский текст</h3>
+<p>В условиях отсутствия готового модуля, позволяющего провести лемматизацию церковнославянского текста, а также учитывая описанную специфику Цветной Триоди, мы решили экспериментиовать как с моделями современного русского языка (<em>Spacy</em>, <em>PyMorphy2</em>, <em>UDPipe</em>), так и используя модели древних языков (<em>UDPipe</em>).</p>
+<p>Результаты лемматизации <em>Spacy</em> и <em>PyMorphy2</em> показали крайне низкое качество, и эти инструменты были исключены из списка рассматриваемых.</p>
+<p>Для русского языка – современного и древнего – в <em>UDPipe</em> представлено 6 моделей. В таблице ниже изложены описания данных моделей:</p>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -242,39 +251,142 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Для оценки качества моделей, каждая из них была использована при лемматизации тестового фрагмента Триоди – текста службы Вознесения [ССЫЛКА].</p>
+<p>Для оценки качества моделей, каждая из них была использована при лемматизации тестового фрагмента Триоди – текста службы Вознесения.</p>
+</section>
+<section id="sec-lemm_csl_result" class="level3">
+<h3 class="anchored" data-anchor-id="sec-lemm_csl_result">Результаты</h3>
 <p>Наименее удовлетворительные результаты были получены при работе с церковнославянской моделью <em>old_church_slavonic-proiel-ud-2.6-200830</em>. Модели, основанные на корпусах Torot и RNC проявили себя лучше. Однако, Torot оказалась чувствительной к знакам препинания – при работе с этой моделью текст нуждается в предварительном удалении пунктуации.</p>
-<p>Ошибки лемматизации были в основном общие – например, парсеру не удалось правильно построить инфинитивы предиката <em>празднуем</em> и <em>глаголет</em>. С <em>глаголет</em> не справились и современные модели (SynTagRus, GSD, Taiga). В целом результаты последних были довольно ровными, хотя с некоторыми словоформами Taiga справлялась лучше, чем SynTagRus и GSD. Например, ей удалось распарсить словоформу <em>вечерни (вечерня)</em>, с которой из других моделей справилась только Torot.</p>
-<p>Помимо проблемы правильного построения начальной формы, возникли ошибки, связанные с омонимией. Так, модели GSD и Taiga, к примеру, не всегда могли принять правильное решение о начальной форме аккузатива и генитива существительного <em>Господь</em> (<em>Господа</em>), совпадающей с номинативом множественного числа <em>господин.</em> Лучшие результаты показала модель <em>SynTagRus</em>.</p>
-<p>—&gt; При распространении лемматизации на полный текст Триоди необходимо выявить модель с наилучшим качеством. По результатам экспериментов мы решили отказаться от PROIEL, а из современных моделей выбирать между Taiga и SynTagRus, хотя их качество при лемматизации службы одного дня оказалось не совсем идеальным.</p>
-<p><em><a href="https://github.com/Drozhzhinastya/GSPC/tree/main/scripts/lemmatization">Код</a> и <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/lemmatization/csl">результаты</a> лемматизации</em></p>
+<p>Ошибки лемматизации были в основном общие – например, парсеру не удалось правильно построить инфинитивы предиката <em><code>празднуем</code></em> и <em><code>глаголет</code></em>.</p>
+<p>С <em><code>глаголет</code></em> не справились и современные модели (<em>SynTagRus</em>, <em>GSD</em>, <em>Taiga</em>). В целом результаты последних были довольно ровными, хотя с некоторыми словоформами <em>Taiga</em> справлялась лучше, чем SynTagRus и GSD. Например, ей удалось распарсить словоформу <em><code>вечерни (вечерня)</code></em>, с которой из других моделей справилась только <em>Torot</em>.</p>
+<p>Помимо проблемы правильного построения начальной формы, возникли ошибки, связанные с омонимией. Так, модели <em>GSD</em> и <em>Taiga</em>, к примеру, не всегда могли принять правильное решение о начальной форме аккузатива и генитива существительного <em><code>Господь</code></em> (<em><code>Господа</code></em>), совпадающей с номинативом множественного числа <em>господин.</em> Лучшие результаты показала модель <em>SynTagRus</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Выбор модели">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Выбор модели
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>—&gt; При распространении лемматизации на полный текст Триоди необходимо выявить модель с наилучшим качеством. По результатам экспериментов мы решили отказаться от <em>PROIEL</em>, а из современных моделей выбирать между <em>Taiga</em> и <em>SynTagRus</em>, хотя их качество при лемматизации службы одного дня оказалось не совсем идеальным</p>
+</div>
+</div>
+<p>В репозитории доступны <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/scripts/lemmatization">код</a> и <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/lemmatization/csl">результаты</a> лемматизации.</p>
 </section>
 </section>
-<section id="греческий-текст" class="level2">
-<h2 class="anchored" data-anchor-id="греческий-текст">Греческий текст</h2>
-<p>Для лемматизации древнегреческого текста используется модуль Backoff Lemmatizer библиотеки CLTK. Выбор лемматизатора основан на выводах, представленных в статье McGillivray-Vatri, авторы которой анализируют точность четырех программных решений для лемматизации текста: Diorisis, LAGT, GLEM, и CLTK. По результатам двух серий экспериментов CLTK показал сравнительно высокую точность подбора корректной леммы, что и послужило определяющим фактором при выборе данного модуля для работы в рамках проекта.</p>
+<section id="sec-lemm_grc" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lemm_grc">Греческий текст</h2>
+<p>Для лемматизации древнегреческого текста используется модуль <em>Backoff Lemmatizer</em> библиотеки CLTK. Выбор лемматизатора основан на выводах, представленных в статье McGillivray-Vatri<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, авторы которой анализируют точность четырех программных решений для лемматизации текста:</p>
+<ul>
+<li>Diorisis</li>
+<li>LAGT</li>
+<li>GLEM</li>
+<li>CLTK</li>
+</ul>
+<p>По результатам двух серий экспериментов <em>CLTK</em> показал сравнительно высокую точность подбора корректной леммы, что и послужило определяющим фактором при выборе данного модуля для работы в рамках проекта.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Подробнее про backoff lemmatizer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Подробнее про backoff lemmatizer
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Другим очевидным преимуществом <em>backoff</em> модуля является использование цепочки лемматизаторов: в случае неудачного результата при обработке токена программа обращается ко внешним лемматизаторам, пока не будет найдена лемма или не будут исчерпаны все указанные варианты. Данный подход существенно повышает точность обработки текста, однако имеет и определенные недостатки. Поскольку backoff-цикл прерывается при первой найденной лемме, результаты лемматизации будут сильно отличаться в зависимости от того порядка, в котором указаны внешние лемматизаторы в backoff-цепочке.</p>
-<p>В качестве экспериментальных корпусов в проекте McGillivray-Vatri использовались классические тексты, что актуализирует проблему идентификации языка текста Цветной Триоди.</p>
-<p>Библиотека CLTK, как и прочие аналогичные инструменты, направлена на обработку классических текстов, а модели Backoff Lemmatizer для древнегреческого языка обучены на материалах проекта Perseus. Греческий текст Цветной Триоди, обрабатываемый в рамках проекта, довольно сложно поддается лингвистической классификации – необходим более глубокий анализ и консультация специалистов, чтобы выйти за рамки сформулированного внутри проекта условного обозначения <em>греческий язык богослужебных текстов</em>. Как и в случае с условно церковнославянским текстом, греческая Триодь находится на шкале между койне и греческим Нового Завета, сочетая элементы обеих форм греческого языка.</p>
+</div>
+</div>
+<section id="sec-about_grc_lang" class="level3">
+<h3 class="anchored" data-anchor-id="sec-about_grc_lang">Языковые особенности</h3>
+<p>В качестве экспериментальных корпусов в исследовании McGillivray-Vatri использовались классические тексты, что актуализирует проблему идентификации языка текста Цветной Триоди.</p>
+<p>Библиотека <em>CLTK</em>, как и прочие аналогичные инструменты, направлена на обработку классических текстов, а модели <em>Backoff Lemmatizer</em> для древнегреческого языка обучены на материалах проекта Perseus.</p>
+<p>Греческий текст Цветной Триоди, обрабатываемый в рамках проекта, довольно сложно поддается лингвистической классификации – необходим более глубокий анализ и консультация специалистов, чтобы выйти за рамки сформулированного внутри проекта условного обозначения <em>греческий язык богослужебных текстов</em>. Как и в случае с условно церковнославянским текстом, греческая Триодь находится на шкале между койне и греческим Нового Завета, сочетая элементы обеих форм греческого языка.</p>
+</section>
+<section id="sec_lemm_grc_result" class="level3">
+<h3 class="anchored" data-anchor-id="sec_lemm_grc_result">Результаты</h3>
 <p>Ниже представлены результаты лемматизации греческого фрагмента службы Вознесения при помощи лемматизаторов CLTK и UDPipe, а также фрагмент исходного текста для сравнения:</p>
-<ul>
-<li>Исходный текст:</li>
-</ul>
-<p><em>Ὁ Κύριος ἀνελήφθη εἰς οὐρανούς, ἵνα πέμψῃ τὸν Παράκλητον τῷ κόσμῳ, οἱ οὐρανοὶ ἡτοίμασαν τὸν θρόνον αὐτοῦ, νεφέλαι τὴν ἐπίβασιν αὐτοῦ, Ἄγγελοι θαυμάζουσιν, ἄνθρωπον ὁρῶντες ὑπεράνω αὐτῶν, ὁ Πατὴρ ἐκδέχεται, ὃν ἐν κόλποις ἔχει συναΐδιον. Τὸ Πνεῦμα τὸ ἅγιον κελεύει πᾶσι τοῖς Ἀγγέλοις αὐτοῦ· Ἄρατε πύλας οἱ ἄρχοντες ἡμῶν, Πάντα τὰ ἔθνη κροτήσατε χεῖρας. ὅτι ἀνέβη Χριστός, ὅπου ἦν τὸ πρότερον.</em></p>
-<ul>
-<li>CLTK:</li>
-</ul>
-<p><em>ὁ κύριος ἀναλαμβάνω εἰς οὐρανός ἵνα πέμπω ὁ παράκλητος ὁ κόσμῳ, ὁ οὐρανός ἑτοιμάζω ὁ θρόνος αὐτός νεφέλη ὁ ἐπίβασις αὐτός ἄγγελος θαυμάζω ἄνθρωπος ὁράω ὑπεράνω αὐτός ὁ πατήρ ἐκδέχομαι ὅς ἐν κόλπος ἔχω συναΐδιον ὁ πνεῦμα ὁ ἅγιος κελεύω πᾶς ὁ ἄγγελος αὐτός ἀείρω πύλη ὁ ἄρχων ἡμεῖς πᾶς ὁ ἔθνος κροτέω χείρ ὅτι ἀναβαίνω χριστός ὅπου εἰμί ὁ πρότερος</em></p>
-<ul>
-<li>UDPipe - Perseus</li>
-</ul>
-<p><em>ὁ Κύριος ἀαλαμβάνω εἰς οὐρανός, ἵνα πέμπω ὁ Παράκλητος ὁ κόσμος , ὁ οὐρανός ἑτοιμάζω ὁ θρόνος αὐτός , νεφέλα ὁ ἐπίβασις αὐτός , Ἄγγελοι θαυμάζω , ἄνθρωπος ὁράω ὑπεράνω αὐτός , ὁ Πατὴρ ἐκδέχομαι , ὅς ἐν κόλπος ἔχω συναΐδιος ὁ Πνεῦμα ὁ ἅγιος κελεύω πᾶς ὁ Ἀγγέλοί αὐτός · Ἄρατε πύλη ὁ ἄρχων ἐγώ , πᾶς ὁ ἔθνος κροτάω χείρ ὅτι ἀνέβη Χριστός , ὅπου εἰμί ὁ πρότερος</em></p>
-<p>Как видно из примеров, оба лемматизатора показывают довольно высокую точность. CLTK не справился со словом <em>ὁ κόσμος</em> (здесь в значении «мир»), оставив его в форме дательного падежа. Возможной причиной ошибки может являться <em>iota subscriptum</em> (подстрочная йота), встречающаяся, среди прочего, в формах существительных дательного падежа. Потенциальным решением подобной проблемы может быть замена таких букв на формы <em>iota adscriptum</em> на этапе предварительной обработки текста: ῳ –&gt; ωι.</p>
-<p>Фрагмент, обработанный при помощи UDPipe, содержит больше неточностей: диалектная форма <em>νεφέλα</em> вместо ожидаемого <em>νεφέλη</em> («облако»), пропущенная буква «ню» в глаголе</p>
-<p><em>ἀαλαμβάνω</em> (здесь «возношусь»), а также необработанные формы <em>ἄρατε</em> (<em>αἴρω</em>, <em>ἀείρω</em>, «поднимаю, беру») и <em>ἀνέβη</em> (<em>ἀναβαίνω</em>, «восхожу»). При этом, UDPipe распознает именованные сущности, что может оказаться актуальным, если будет решено добавить подобный функционал в пайплайн.</p>
-<p><em><a href="https://github.com/Drozhzhinastya/GSPC/tree/main/scripts/lemmatization">Код</a> и <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/lemmatization/greek">результаты</a> лемматизации</em></p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Исходный текст">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Исходный текст
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>Ὁ Κύριος ἀνελήφθη εἰς οὐρανούς, ἵνα πέμψῃ τὸν Παράκλητον τῷ κόσμῳ, οἱ οὐρανοὶ ἡτοίμασαν τὸν θρόνον αὐτοῦ, νεφέλαι τὴν ἐπίβασιν αὐτοῦ, Ἄγγελοι θαυμάζουσιν, ἄνθρωπον ὁρῶντες ὑπεράνω αὐτῶν, ὁ Πατὴρ ἐκδέχεται, ὃν ἐν κόλποις ἔχει συναΐδιον. Τὸ Πνεῦμα τὸ ἅγιον κελεύει πᾶσι τοῖς Ἀγγέλοις αὐτοῦ· Ἄρατε πύλας οἱ ἄρχοντες ἡμῶν, Πάντα τὰ ἔθνη κροτήσατε χεῖρας. ὅτι ἀνέβη Χριστός, ὅπου ἦν τὸ πρότερον.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Результат лемматизации CLTK">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Результат лемматизации CLTK
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>ὁ κύριος ἀναλαμβάνω εἰς οὐρανός ἵνα πέμπω ὁ παράκλητος ὁ κόσμῳ, ὁ οὐρανός ἑτοιμάζω ὁ θρόνος αὐτός νεφέλη ὁ ἐπίβασις αὐτός ἄγγελος θαυμάζω ἄνθρωπος ὁράω ὑπεράνω αὐτός ὁ πατήρ ἐκδέχομαι ὅς ἐν κόλπος ἔχω συναΐδιον ὁ πνεῦμα ὁ ἅγιος κελεύω πᾶς ὁ ἄγγελος αὐτός ἀείρω πύλη ὁ ἄρχων ἡμεῖς πᾶς ὁ ἔθνος κροτέω χείρ ὅτι ἀναβαίνω χριστός ὅπου εἰμί ὁ πρότερος</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Результат лемматизации UDPipe - Perseus">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Результат лемматизации UDPipe - Perseus
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>ὁ Κύριος ἀαλαμβάνω εἰς οὐρανός, ἵνα πέμπω ὁ Παράκλητος ὁ κόσμος , ὁ οὐρανός ἑτοιμάζω ὁ θρόνος αὐτός , νεφέλα ὁ ἐπίβασις αὐτός , Ἄγγελοι θαυμάζω , ἄνθρωπος ὁράω ὑπεράνω αὐτός , ὁ Πατὴρ ἐκδέχομαι , ὅς ἐν κόλπος ἔχω συναΐδιος ὁ Πνεῦμα ὁ ἅγιος κελεύω πᾶς ὁ Ἀγγέλοί αὐτός · Ἄρατε πύλη ὁ ἄρχων ἐγώ , πᾶς ὁ ἔθνος κροτάω χείρ ὅτι ἀνέβη Χριστός , ὅπου εἰμί ὁ πρότερος</p>
+</blockquote>
+</div>
+</div>
+</div>
+<p>Как видно из примеров, оба лемматизатора показывают довольно высокую точность. <em>CLTK</em> не справился со словом <em><code>ὁ κόσμος</code></em> (здесь в значении «мир»), оставив его в форме дательного падежа. Возможной причиной ошибки может являться <em>iota subscriptum</em> (подстрочная йота), встречающаяся, среди прочего, в формах существительных дательного падежа.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Что можно с этим сделать?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Что можно с этим сделать?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Потенциальным решением подобной проблемы может быть замена таких букв на формы <em>iota adscriptum</em> на этапе предварительной обработки текста: <code>ῳ –&gt; ωι</code></p>
+</div>
+</div>
+<p>Фрагмент, обработанный при помощи UDPipe, содержит больше неточностей: диалектная форма <em><code>νεφέλα</code></em> вместо ожидаемого <em>νεφέλη</em> («облако»), пропущенная буква «ню» в глаголе <em><code>ἀαλαμβάνω</code></em> (здесь «возношусь»), а также необработанные формы <em><code>ἄρατε</code></em> (<em>αἴρω</em>, <em>ἀείρω</em>, «поднимаю, беру») и <em><code>ἀνέβη</code></em> (<em>ἀναβαίνω</em>, «восхожу»).</p>
+<p>При этом, UDPipe распознает именованные сущности, что может оказаться актуальным, если будет решено добавить подобный функционал в пайплайн.</p>
+<p>В репозитории доступны <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/scripts/lemmatization">код</a> и <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/lemmatization/greek">результаты</a> лемматизации.</p>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>McGillivray B., Vatri A. Lemmatization for ancient Greek: An experimental assessment of the state of the art. // Journal of Greek Linguistics. № 20 (2). P. 181-183.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

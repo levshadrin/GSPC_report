@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Вопрос об оценке качества сведения текстов</span></a>
+  <a href="./060_evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Оценка качества выравнивания текстов</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -149,7 +149,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#sec-about_bert" id="toc-sec-about_bert" class="nav-link active" data-scroll-target="#sec-about_bert">BERT и трансформеры</a></li>
+  <li><a href="#sec-project_transformers" id="toc-sec-project_transformers" class="nav-link" data-scroll-target="#sec-project_transformers">В контексте проекта</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -171,18 +178,70 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Задача оценки семантического сходства (text-similarity) заключается в определении степени схожести двух предложений с точки зрения транслируемого смысла.</p>
-<p>Семантический поиск направлен на повышение точности сопоставления текстовых единиц путем понимания содержания поискового запроса. В отличие от использования только лексических совпадений, семантический поиск также может находить синонимы и другие единицы, имеющие схожий контекст употребления, поскольку этот алгоритм основывается на эмбеддингах – векторных представлениях текстовых единиц. Термин “embedding”, взятый из английской литературы, используется для описания процесса, когда модель оцифровывает смысл слов и записывает его в виде упорядоченного набора числовых значений – вектора.</p>
-<p>Наиболее эффективным способом построения моделей естественного языка является обучение нейронных сетей на основе архитектуры «трансформер». В качестве примера можно привести <a href="https://arxiv.org/abs/1810.04805">BERT</a> – модель. которая используется для определения сходства слов и предложений.</p>
-<p>Более качественные результаты можно получить, оптимизируя BERT под конкретные задачи. К примеру, модель <a href="https://arxiv.org/pdf/1908.10084.pdf">SBERT</a> обучена непосредственно для работы с задачами по определению схожести предложений на основе косинусной меры.</p>
-<p>Как отмечают разработчики <a href="https://habr.com/ru/companies/sberdevices/articles/527576/">модели</a>, её “архитектура представляет собой <a href="https://en.wikipedia.org/wiki/Siamese_neural_network">сиамскую нейронную сеть</a> с тремя входами для триплета&nbsp; «anchor — positive — negative».&nbsp; К каждому из входов применяется модуль BERT, который и будет выполнять роль NLU в этом эксперименте. Модуль содержит в себе <a href="https://paperswithcode.com/method/wordpiece">wordpiece-токенизатор</a> для преобразования входных строк в BERT-совместимый формат (input_ids, input_mask, token_type_ids), а также саму обучаемую модель BERT для векторизации текста.”</p>
-<p>В результате дообучения модели SBERT для задачи поиска переводных эквивалентов было получено множество вариантов <a href="https://huggingface.co/models?pipeline_tag=sentence-similarity&amp;sort=downloads&amp;search=multi">мультиязычных моделей</a>.</p>
-<p>В настоящий момент мы считаем, что подобные мультиязыковые модели могут значительно приблизить проект к решению изначальной задачи, потенциально обеспечивая более высокое качество поиска наиболее схожих единиц греческого и церковнославянского текста.</p>
-<p>В репозитории представлен <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/text-similarity/GSPC_sbert.ipynb">код</a> для работы с нашим текстом, а также результаты работы с моделью sentence-transformers/all-MiniLM-L6-v2, которая на наш взгляд демонстрирует более высокое качество сведения текстов Триоди.</p>
-<p>Эксперименты проводились как на уровне отдельных предложений, так и на уровне гимнов (минимальных единиц разметки текста, представленной в нашей csv - см.выше). Каждое уникальное предложение/гимн греческого текста сопоставлялось с каждым предложением церковнославянского текста. Результаты экспериментов представлены в <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/csv/sbert">csv таблице</a>, где собраны топ-5 церковнославянских предложений, выделенных моделью как наиболее близкие соответствующему греческому элементу.</p>
+<p>Задача оценки семантического сходства – <strong>text-similarity</strong> – заключается в определении степени схожести двух предложений с точки зрения транслируемого смысла.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Подробнее про text-similarity">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Подробнее про text-similarity
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Семантический поиск направлен на повышение точности сопоставления текстовых единиц путем понимания содержания поискового запроса.</p>
+<p>В отличие от использования только лексических совпадений, семантический поиск также может находить синонимы и другие единицы, имеющие схожий контекст употребления, поскольку этот алгоритм основывается на эмбеддингах – векторных представлениях текстовых единиц.</p>
+<p>Термин <em><code>embedding</code></em>, вошедший в научный оборот из английской литературы, используется для описания метода, по которому модель оцифровывает смысл слов и представляет его в виде упорядоченного набора числовых значений – вектора.</p>
+</div>
+</div>
+</div>
+<section id="sec-about_bert" class="level2">
+<h2 class="anchored" data-anchor-id="sec-about_bert">BERT и трансформеры</h2>
+<p>Наиболее эффективным способом построения моделей естественного языка является обучение нейронных сетей на основе архитектуры «трансформер». В качестве примера можно привести <a href="https://arxiv.org/abs/1810.04805"><strong>BERT</strong></a> – модель, используемая для определения сходства слов и предложений.</p>
+<p>Более качественные результаты можно получить, оптимизируя <em>BERT</em> под конкретные задачи. К примеру, модель <a href="https://arxiv.org/pdf/1908.10084.pdf"><strong>SBERT</strong></a> обучена непосредственно для работы с задачами по определению схожести предложений на основе косинусной меры.</p>
+<p>Как отмечают разработчики <a href="https://habr.com/ru/companies/sberdevices/articles/527576/">модели</a>, её “архитектура представляет собой <a href="https://en.wikipedia.org/wiki/Siamese_neural_network">сиамскую нейронную сеть</a> с тремя входами для триплета&nbsp; «anchor — positive — negative».&nbsp; К каждому из входов применяется модуль <em>BERT</em>, который и будет выполнять роль NLU в этом эксперименте. Модуль содержит в себе <a href="https://paperswithcode.com/method/wordpiece">wordpiece-токенизатор</a> для преобразования входных строк в BERT-совместимый формат (<code>input_ids</code>, <code>input_mask</code>, <code>token_type_ids</code>), а также саму обучаемую модель <em>BERT</em> для векторизации текста.”</p>
+<p>В результате дообучения модели <em>SBERT</em> для задачи поиска переводных эквивалентов было получено множество вариантов <a href="https://huggingface.co/models?pipeline_tag=sentence-similarity&amp;sort=downloads&amp;search=multi">мультиязычных моделей</a>.</p>
+</section>
+<section id="sec-project_transformers" class="level2">
+<h2 class="anchored" data-anchor-id="sec-project_transformers">В контексте проекта</h2>
+<p>Эксперименты с транфсормерами и языковыми моделями проводились на заключительных проектных спринтах и показали наилучший – хотя и далекий от приемлемого – результат выравнивания текстов за весь период работы.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Подробнее об экспериментах и результатах">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Подробнее об экспериментах и результатах
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Эксперименты проводились как на уровне отдельных предложений, так и на уровне гимнов (минимальных единиц разметки текста). Каждое уникальное предложение/гимн греческого текста сопоставлялось с каждым предложением церковнославянского текста.</p>
+<p>Результаты экспериментов представлены в <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/csv/sbert">csv таблице</a>, где собраны топ-5 церковнославянских предложений, выделенных моделью как наиболее близкие соответствующему греческому элементу.</p>
+</div>
+</div>
+</div>
+<p>В репозитории представлен <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/text-similarity/GSPC_sbert.ipynb">код</a> для работы с нашим текстом, а также результаты работы с моделью <em>sentence-transformers/all-MiniLM-L6-v2</em>, которая на наш взгляд демонстрирует более высокое качество сведения текстов Триоди.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Перспективность для дальнейшей разработки">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Перспективность для дальнейшей разработки
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>В настоящий момент мы считаем, что подобные мультиязыковые модели могут значительно приблизить проект к решению изначальной задачи, потенциально обеспечив более высокое качество поиска наиболее схожих единиц греческого и церковнославянского текста.</p>
 <p>В дальнейшей перспективе предстоит разработать решение для оценки качества сведения текстов и улучшения результатов выравнивания с опорой на него.</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -426,7 +485,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./060_evaluation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Вопрос об оценке качества сведения текстов</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Оценка качества выравнивания текстов</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
