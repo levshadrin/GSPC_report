@@ -20,4 +20,11 @@
 -   *консультационная поддержка*: \
     Анастасия Александровна Бонч-Осмоловская, кан. филол. наук, доцент НИУ-ВШЭ
 
+:::{.callout-note collapse="true" icon=false appearance=simple title='Ссылки на ресурсы'}
+-   репозиторий проекта:
+    [GSPC](https://github.com/Drozhzhinastya/GSPC)
+
+-   код с материалами этой публикации:
+    [GSPC_report](https://github.com/levshadrin/GSPC_report)
+:::
 \
