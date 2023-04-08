@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-html_color" class="level2">
 <h2 class="anchored" data-anchor-id="sec-html_color">Выгрузка html и цветовая разметка</h2>
 <p>На <a href="./010_pentekostarion.html#sec-about_pent">веб-страницах</a>, с которых были выгружены тексты для работы, фрагменты молитв и служебных указаний размечены при помощи параметров цвета внутри html-тегов.</p>
-<p>Тексты молитв выделены черным цветом, указаний - красным. Предположив, что сохранение данной структуры (см. особенность 2 раздела “Специфика текста Цветной триоди (в частности) и богослужебных текстов”) поможет улучшить результаты выравнивания корпуса, мы решили выгрузить тексты с сохранением цветовой разметки.</p>
+<p>Тексты молитв выделены черным цветом, указаний - красным. Предположив, что сохранение данной структуры<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> поможет улучшить результаты выравнивания корпуса, мы решили выгрузить тексты с сохранением цветовой разметки.</p>
 <ul>
 <li><p><strong>Церковнославянский текст</strong> имел регулярную html-структуру, и сведения о цветовой маркировке удалось получить с помощью базовых инструментов для веб-скрейпинга и <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/scraping/md_to_csv_csl.ipynb">регулярных выражений</a></p></li>
 <li><p>При работе с html-структурой <strong>греческого текста</strong> мы столкнулись с ошибками в организации страницы: многие текстовые фрагменты не попадали в теги цветовой разметки. Для корректной выгрузки греческого текста был написан <a href="https://github.com/Drozhzhinastya/GSPC/blob/main/scripts/scraping/scrape_grc.ipynb">код</a></p></li>
@@ -305,6 +305,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Развернутая структура оформления текста молитв сохраняется в csv файлах. Однако мы предполагаем, что для оптимизации параметров длины исходных текстов, релевантна работа с <a href="https://github.com/Drozhzhinastya/GSPC/tree/main/texts/unique_units">уникальными единицами текста</a>.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Подробнее о цветовой структуре см. в разделе о специфике текстов <a href="./010_pentekostarion.html#sec-func_structure">Цветной Триоди</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
